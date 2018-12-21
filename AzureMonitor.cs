@@ -82,15 +82,9 @@ namespace azuremonitor
             var recordDateTime = DateTime.Now;
             foreach (var metricDefinition in _azure.MetricDefinitions.ListByResource(_argsOption.ResourceId))
             {
-                if (string.Equals(metricDefinition.Name.Value, "CpuPercentage"))
-                {
-                    Dump(metricDefinition);
-                }
-                else if (string.Equals(metricDefinition.Name.Value, "MemoryPercentage"))
-                {
-                    Dump(metricDefinition);
-                }
-                else if (string.Equals(metricDefinition.Name.Value, "CpuTime"))
+                if (string.Equals(metricDefinition.Name.Value, "CpuPercentage") ||
+                    string.Equals(metricDefinition.Name.Value, "MemoryPercentage") ||
+                    string.Equals(metricDefinition.Name.Value, "CpuTime"))
                 {
                     Dump(metricDefinition);
                 }
